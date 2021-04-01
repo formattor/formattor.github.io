@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>奖学金管理系统数据库设计 | 张与时の岛</title><meta name="description" content="奖学金管理系统数据库设计"><meta name="keywords" content=""><meta name="author" content="narcissus"><meta name="copyright" content="narcissus"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="http://yoursite.com/2021/04/01/%E5%A5%96%E5%AD%A6%E9%87%91%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="奖学金管理系统数据库设计"><meta name="twitter:description" content="奖学金管理系统数据库设计"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/archive.jpg"><meta property="og:type" content="article"><meta property="og:title" content="奖学金管理系统数据库设计"><meta property="og:url" content="http://yoursite.com/2021/04/01/%E5%A5%96%E5%AD%A6%E9%87%91%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><meta property="og:site_name" content="张与时の岛"><meta property="og:description" content="奖学金管理系统数据库设计"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/archive.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="next" title="浮动与定位" href="http://yoursite.com/2021/03/31/%E6%B5%AE%E5%8A%A8%E4%B8%8E%E5%AE%9A%E4%BD%8D/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"><title>奖学金管理系统数据库设计 | 张与时の岛</title><meta name="description" content="奖学金管理系统数据库设计"><meta name="keywords" content="mysql"><meta name="author" content="narcissus"><meta name="copyright" content="narcissus"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.ico"><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/font-awesome@latest/css/font-awesome.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><meta http-equiv="x-dns-prefetch-control" content="on"><link rel="canonical" href="http://yoursite.com/2021/04/01/%E5%A5%96%E5%AD%A6%E9%87%91%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="奖学金管理系统数据库设计"><meta name="twitter:description" content="奖学金管理系统数据库设计"><meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/archive.jpg"><meta property="og:type" content="article"><meta property="og:title" content="奖学金管理系统数据库设计"><meta property="og:url" content="http://yoursite.com/2021/04/01/%E5%A5%96%E5%AD%A6%E9%87%91%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/"><meta property="og:site_name" content="张与时の岛"><meta property="og:description" content="奖学金管理系统数据库设计"><meta property="og:image" content="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/archive.jpg"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="next" title="浮动与定位" href="http://yoursite.com/2021/03/31/%E6%B5%AE%E5%8A%A8%E4%B8%8E%E5%AE%9A%E4%BD%8D/"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web"><script>var GLOBAL_CONFIG = { 
   root: '/',
   algolia: undefined,
   localSearch: undefined,
@@ -20,7 +20,508 @@
   copyright: undefined,
   copy_copyright_js: false
   
-}</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="header"> <div id="page-header"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">张与时の岛</a></span><i class="fa fa-bars fa-fw toggle-menu pull-right close" aria-hidden="true"></i><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">11</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">7</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">3</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div></div></div><div id="body-wrap"><div id="web_bg"></div><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/archive.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">奖学金管理系统数据库设计</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2021-04-01<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2021-04-01</time><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">0</span><span class="post-meta__separator">|</span><span>阅读时长: 1 分钟</span><span class="post-meta__separator">|</span><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"></div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">narcissus</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2021/04/01/%E5%A5%96%E5%AD%A6%E9%87%91%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/">http://yoursite.com/2021/04/01/%E5%A5%96%E5%AD%A6%E9%87%91%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">张与时の岛</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/archive.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lozad post-qr-code__img" src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lozad post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2021/03/31/%E6%B5%AE%E5%8A%A8%E4%B8%8E%E5%AE%9A%E4%BD%8D/"><img class="next_cover lozad" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/post.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>浮动与定位</span></div></a></div></nav></div></div><footer><div id="footer"><div class="copyright">&copy;2018 - 2021 By narcissus</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换">简</a><i class="nightshift fa fa-moon-o" id="nightshift" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/nightshift.js"></script><script src="/js/baidupush.js"> </script><script src="/js/tw_cn.js"></script><script>translateInitilization()
+}</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="header"> <div id="page-header"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">张与时の岛</a></span><i class="fa fa-bars fa-fw toggle-menu pull-right close" aria-hidden="true"></i><span class="pull-right menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></span><span class="pull-right" id="search_button"></span></div></div><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="lozad avatar_img" src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/avatar.png" onerror="onerror=null;src='/img/friend_404.gif'"></div><div class="mobile_post_data"><div class="mobile_data_item is_center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">11</div></a></div></div><div class="mobile_data_item is_center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">8</div></a></div></div><div class="mobile_data_item is_center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">4</div></a></div></div></div><hr><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fa fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fa fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fa fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fa fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fa fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fa fa-heart"></i><span> About</span></a></div><div class="menus_item"><a class="site-page"><i class="fa-fw fa fa-list" aria-hidden="true"></i><span> List</span><i class="fa fa-chevron-down menus-expand" aria-hidden="true"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fa fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fa fa-film"></i><span> Movie</span></a></li></ul></div><script>document.body.addEventListener('touchstart', function(){ });</script></div></div><div id="mobile-sidebar-toc"><div class="toc_mobile_headline">目录</div><ol class="toc_mobile_items"><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc_mobile_items-number">1.</span> <span class="toc_mobile_items-text">数据库</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc_mobile_items-number">1.0.1.</span> <span class="toc_mobile_items-text">基本操作</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF"><span class="toc_mobile_items-number">1.0.2.</span> <span class="toc_mobile_items-text">数据库信息</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#1-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc_mobile_items-number">1.1.</span> <span class="toc_mobile_items-text">1.系统管理员</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#1-1%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98-SysAdmin"><span class="toc_mobile_items-number">1.1.1.</span> <span class="toc_mobile_items-text">1.1系统管理员 SysAdmin</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#2-%E5%A5%96%E5%AD%A6%E9%87%91%E9%83%A8%E9%97%A8%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc_mobile_items-number">1.2.</span> <span class="toc_mobile_items-text">2.奖学金部门管理员</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#2-1%E5%A5%96%E5%AD%A6%E9%87%91%E5%B7%A5%E4%BD%9C%E9%83%A8%E9%97%A8%E7%AE%A1%E7%90%86%E5%91%98-work-info"><span class="toc_mobile_items-number">1.2.1.</span> <span class="toc_mobile_items-text">2.1奖学金工作部门管理员 work_info</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#2-2%E5%AD%A6%E7%94%9F%E5%A5%96%E6%83%A9%E4%BF%A1%E6%81%AF-reword-info"><span class="toc_mobile_items-number">1.2.2.</span> <span class="toc_mobile_items-text">2.2学生奖惩信息 reword_info</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#2-3%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E4%BF%A1%E6%81%AF-score-info"><span class="toc_mobile_items-number">1.2.3.</span> <span class="toc_mobile_items-text">2.3学生成绩信息 score_info</span></a></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-4"><a class="toc_mobile_items-link" href="#3-%E9%99%A2%E7%B3%BB%E9%83%A8%E9%97%A8%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc_mobile_items-number">1.3.</span> <span class="toc_mobile_items-text">3.院系部门管理员</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#3-1%E9%99%A2%E7%B3%BB%E9%83%A8%E9%97%A8%E7%AE%A1%E7%90%86%E5%91%98-depart-info"><span class="toc_mobile_items-number">1.3.1.</span> <span class="toc_mobile_items-text">3.1院系部门管理员 depart_info</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#4-%E7%8F%AD%E4%B8%BB%E4%BB%BB%E4%BF%A1%E6%81%AF-tech-info"><span class="toc_mobile_items-number">1.3.2.</span> <span class="toc_mobile_items-text">4.班主任信息 tech_info</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#5-%E5%AD%A6%E7%94%9F%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-student-info"><span class="toc_mobile_items-number">1.3.3.</span> <span class="toc_mobile_items-text">5.学生基本信息 student_info</span></a></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#%E6%9D%83%E9%99%90"><span class="toc_mobile_items-number">2.</span> <span class="toc_mobile_items-text">权限</span></a><ol class="toc_mobile_items-child"><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#%E7%B3%BB%E7%BB%9F%E6%9D%83%E9%99%90"><span class="toc_mobile_items-number">2.0.1.</span> <span class="toc_mobile_items-text">系统权限</span></a></li><li class="toc_mobile_items-item toc_mobile_items-level-5"><a class="toc_mobile_items-link" href="#%E5%A5%96%E5%AD%A6%E9%87%91%E7%BA%A7%E5%88%AB"><span class="toc_mobile_items-number">2.0.2.</span> <span class="toc_mobile_items-text">奖学金级别</span></a></li></ol></li></ol></li><li class="toc_mobile_items-item toc_mobile_items-level-3"><a class="toc_mobile_items-link" href="#%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="toc_mobile_items-number">3.</span> <span class="toc_mobile_items-text">存在问题</span></a></li></ol></div></div><div id="body-wrap"><div id="web_bg"></div><i class="fa fa-arrow-right" id="toggle-sidebar" aria-hidden="true">     </i><div class="auto_open" id="sidebar"><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">1.</span> <span class="toc-text">数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C"><span class="toc-number">1.0.1.</span> <span class="toc-text">基本操作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF"><span class="toc-number">1.0.2.</span> <span class="toc-text">数据库信息</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">1.1.</span> <span class="toc-text">1.系统管理员</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-1%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98-SysAdmin"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.1系统管理员 SysAdmin</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%A5%96%E5%AD%A6%E9%87%91%E9%83%A8%E9%97%A8%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">1.2.</span> <span class="toc-text">2.奖学金部门管理员</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#2-1%E5%A5%96%E5%AD%A6%E9%87%91%E5%B7%A5%E4%BD%9C%E9%83%A8%E9%97%A8%E7%AE%A1%E7%90%86%E5%91%98-work-info"><span class="toc-number">1.2.1.</span> <span class="toc-text">2.1奖学金工作部门管理员 work_info</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-2%E5%AD%A6%E7%94%9F%E5%A5%96%E6%83%A9%E4%BF%A1%E6%81%AF-reword-info"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.2学生奖惩信息 reword_info</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-3%E5%AD%A6%E7%94%9F%E6%88%90%E7%BB%A9%E4%BF%A1%E6%81%AF-score-info"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.3学生成绩信息 score_info</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E9%99%A2%E7%B3%BB%E9%83%A8%E9%97%A8%E7%AE%A1%E7%90%86%E5%91%98"><span class="toc-number">1.3.</span> <span class="toc-text">3.院系部门管理员</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#3-1%E9%99%A2%E7%B3%BB%E9%83%A8%E9%97%A8%E7%AE%A1%E7%90%86%E5%91%98-depart-info"><span class="toc-number">1.3.1.</span> <span class="toc-text">3.1院系部门管理员 depart_info</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E7%8F%AD%E4%B8%BB%E4%BB%BB%E4%BF%A1%E6%81%AF-tech-info"><span class="toc-number">1.3.2.</span> <span class="toc-text">4.班主任信息 tech_info</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-%E5%AD%A6%E7%94%9F%E5%9F%BA%E6%9C%AC%E4%BF%A1%E6%81%AF-student-info"><span class="toc-number">1.3.3.</span> <span class="toc-text">5.学生基本信息 student_info</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%83%E9%99%90"><span class="toc-number">2.</span> <span class="toc-text">权限</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E6%9D%83%E9%99%90"><span class="toc-number">2.0.1.</span> <span class="toc-text">系统权限</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A5%96%E5%AD%A6%E9%87%91%E7%BA%A7%E5%88%AB"><span class="toc-number">2.0.2.</span> <span class="toc-text">奖学金级别</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">存在问题</span></a></li></ol></div></div></div><div id="content-outer"><div id="top-container" style="background-image: url(https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/archive.jpg)"><div id="post-info"><div id="post-title"><div class="posttitle">奖学金管理系统数据库设计</div></div><div id="post-meta"><time class="post-meta__date"><i class="fa fa-calendar" aria-hidden="true"></i> 发表于 2021-04-01<span class="post-meta__separator">|</span><i class="fa fa-history" aria-hidden="true"></i> 更新于 2021-04-01</time><span class="post-meta__separator mobile_hidden">|</span><span class="mobile_hidden"><i class="fa fa-inbox post-meta__icon" aria-hidden="true"></i><a class="post-meta__categories" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a></span><div class="post-meta-wordcount"><span>字数总计: </span><span class="word-count">1.1k</span><span class="post-meta__separator">|</span><span>阅读时长: 4 分钟</span><span class="post-meta__separator">|</span><span>阅读量: </span><span id="busuanzi_value_page_pv"></span></div></div></div></div><div class="layout layout_post" id="content-inner">   <article id="post"><div class="article-container" id="post-content"><h3 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h3><h5 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h5><table>
+<thead>
+<tr>
+<th>数据库基本操作</th>
+<th>语句</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>显示数据库</td>
+<td><code>show databases;</code></td>
+</tr>
+<tr>
+<td>使用数据库</td>
+<td><code>use scholorship;</code></td>
+</tr>
+<tr>
+<td>显示表</td>
+<td><code>show tables;</code></td>
+</tr>
+</tbody></table>
+<h5 id="数据库信息"><a href="#数据库信息" class="headerlink" title="数据库信息"></a>数据库信息</h5><table>
+<thead>
+<tr>
+<th align="center">介绍</th>
+<th align="center">名称</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">数据库名称</td>
+<td align="center">Scholorship（误）</td>
+</tr>
+<tr>
+<td align="center">数据库密码</td>
+<td align="center">123456</td>
+</tr>
+</tbody></table>
+<h4 id="1-系统管理员"><a href="#1-系统管理员" class="headerlink" title="1.系统管理员"></a>1.系统管理员</h4><h5 id="1-1系统管理员-SysAdmin"><a href="#1-1系统管理员-SysAdmin" class="headerlink" title="1.1系统管理员 SysAdmin"></a>1.1系统管理员 SysAdmin</h5><p>SysAdmin（和之后的名称规范不符，最好修改回来）</p>
+<table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">类型</th>
+<th align="center">长度</th>
+<th align="center">说明</th>
+<th align="center">空/非空</th>
+<th align="center">约束条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Admin_Id</td>
+<td align="center">int</td>
+<td align="center">100</td>
+<td align="center"></td>
+<td align="center">非空</td>
+<td align="center">主键</td>
+</tr>
+<tr>
+<td align="center">Admin_Pass</td>
+<td align="center">char</td>
+<td align="center">100</td>
+<td align="center">密码</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Admin_Name</td>
+<td align="center">char</td>
+<td align="center">100</td>
+<td align="center">用户名</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Authority</td>
+<td align="center">int</td>
+<td align="center">4</td>
+<td align="center">权限0</td>
+<td align="center">非空</td>
+<td align="center">外键？</td>
+</tr>
+</tbody></table>
+<p>建表</p>
+<ul>
+<li>```<br>create table SysAdmin(<pre><code>    Admin_Id int auto_increment primary key,
+    Admin_Pass varchar(100) not null,
+    Admin_Name varchar(100) not null,
+    Authority int not null
+</code></pre>
+)charset utf8;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">添加语句</span><br><span class="line"></span><br><span class="line">+ &#96;insert into SysAdmin (Admin_Id,Admin_Pass,Admin_Name,Authority) values (null,&#39;123456&#39;,&#39;张与时&#39;,0);&#96;</span><br><span class="line"></span><br><span class="line">删除语句</span><br><span class="line"></span><br><span class="line">+ &#96;delete from SysAdmin where Admin_Name &#x3D;&#39;陈瀚&#39;;&#96;</span><br><span class="line"></span><br><span class="line">##### 1.2管理员日志信息 manage_log</span><br><span class="line"></span><br><span class="line">|    字段     |  类型   | 长度 |   说明   | 空&#x2F;非空 | 约束条件 |</span><br><span class="line">| :---------: | :-----: | :--: | :------: | :-----: | :------: |</span><br><span class="line">|   log_id    |   int   |      |          |  非空   |   主键   |</span><br><span class="line">|  log_title  | varchar |  60  |   标题   |  非空   |          |</span><br><span class="line">|  log_time   | varchar |  60  | 发布时间 |  非空   |          |</span><br><span class="line">| log_writer  | varchar |  10  |  发布人  |  非空   |          |</span><br><span class="line">| log_content | varchar | 600  |   内容   |  非空   |          |</span><br><span class="line"></span><br><span class="line">建表</span><br><span class="line"></span><br><span class="line">+ &#96;&#96;&#96;  </span><br><span class="line">  create table manage_log(</span><br><span class="line">  		log_id int auto_increment primary key,</span><br><span class="line">  		log_title varchar(60) not null,</span><br><span class="line">  		log_time varchar(60) not null,</span><br><span class="line">  		log_writer varchar(10) not null,</span><br><span class="line">  		log_content varchar(600) not null</span><br><span class="line">  )charset utf8;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>添加语句</p>
+<ul>
+<li><code>insert into manage_log (log_id,log_title,log_time,log_writer,log_content) values (null,&#39;日志标题一号&#39;,&#39;12：20&#39;,&#39;张与时&#39;,&#39;软件学院河南省开封市顺河回族区RB软工&#39;);</code></li>
+</ul>
+<h4 id="2-奖学金部门管理员"><a href="#2-奖学金部门管理员" class="headerlink" title="2.奖学金部门管理员"></a>2.奖学金部门管理员</h4><h5 id="2-1奖学金工作部门管理员-work-info"><a href="#2-1奖学金工作部门管理员-work-info" class="headerlink" title="2.1奖学金工作部门管理员 work_info"></a>2.1奖学金工作部门管理员 work_info</h5><table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">类型</th>
+<th align="center">长度</th>
+<th align="center">说明</th>
+<th align="center">空/非空</th>
+<th align="center">约束条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">work_id</td>
+<td align="center">int</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">非空</td>
+<td align="center">主键</td>
+</tr>
+<tr>
+<td align="center">work_pwd</td>
+<td align="center">varchar</td>
+<td align="center">100</td>
+<td align="center">密码</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">work_name</td>
+<td align="center">varchar</td>
+<td align="center">100</td>
+<td align="center">用户名</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Authority</td>
+<td align="center">int</td>
+<td align="center">4</td>
+<td align="center">权限1</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>建表</p>
+<ul>
+<li>```<br>create table work_info(<pre><code>    work_id int auto_increment primary key,
+    work_pwd varchar(100) not null,
+    work_name varchar(100) not null,
+    work_tech varchar(100) not null,
+    Authority int not null
+</code></pre>
+)charset utf8;<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">添加语句</span><br><span class="line"></span><br><span class="line">+ &#96;insert into work_info (work_id,work_pwd,work_name,work_tech,Authority) values (null,&#39;123456&#39;,&#39;陈瀚&#39;,1);&#96;</span><br><span class="line"></span><br><span class="line">##### 1.2公告信息 notice_info</span><br><span class="line"></span><br><span class="line">|      字段      |  类型   | 长度 |   说明   | 空&#x2F;非空 | 约束条件 |</span><br><span class="line">| :------------: | :-----: | :--: | :------: | :-----: | :------: |</span><br><span class="line">|   notice_id    |   int   |      |          |  非空   |   主键   |</span><br><span class="line">|  notice_title  | varchar |  60  |   标题   |  非空   |          |</span><br><span class="line">|  notice_time   | varchar |  60  | 发布时间 |  非空   |          |</span><br><span class="line">| notice_writer  | varchar |  10  |  发布人  |  非空   |          |</span><br><span class="line">| notice_content | varchar | 600  |   内容   |  非空   |          |</span><br><span class="line"></span><br><span class="line">+ &#96;&#96;&#96;</span><br><span class="line">  create table notice_info(</span><br><span class="line">  		notice_id int auto_increment primary key,</span><br><span class="line">  		notice_title varchar(60) not null,</span><br><span class="line">  		notice_time varchar(60) not null,</span><br><span class="line">  		notice_writer varchar(10) not null,</span><br><span class="line">  		notice_content varchar(600) not null</span><br><span class="line">  )charset utf8;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>添加语句</p>
+<ul>
+<li><code>insert into notice_info (notice_id,notice_title,notice_time,notice_writer,notice_content) values (null,&#39;关于张与时同学获得奖学金公告&#39;,&#39;12：30&#39;,&#39;张与时&#39;,&#39;软件学院河南省开封市顺河回族区RB软工&#39;);</code></li>
+</ul>
+<h5 id="2-2学生奖惩信息-reword-info"><a href="#2-2学生奖惩信息-reword-info" class="headerlink" title="2.2学生奖惩信息 reword_info"></a>2.2学生奖惩信息 reword_info</h5><table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">类型</th>
+<th align="center">长度</th>
+<th align="center">说明</th>
+<th align="center">空/非空</th>
+<th align="center">约束条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">id</td>
+<td align="center">int</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">非空</td>
+<td align="center">主键</td>
+</tr>
+<tr>
+<td align="center">stu_id</td>
+<td align="center">char</td>
+<td align="center">20</td>
+<td align="center">学号</td>
+<td align="center">非空</td>
+<td align="center">外键</td>
+</tr>
+<tr>
+<td align="center">reword_rank</td>
+<td align="center">int</td>
+<td align="center"></td>
+<td align="center">院/校/省/国家</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">reword_list</td>
+<td align="center">varchar</td>
+<td align="center">1000</td>
+<td align="center">奖项列表</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h5 id="2-3学生成绩信息-score-info"><a href="#2-3学生成绩信息-score-info" class="headerlink" title="2.3学生成绩信息 score_info"></a>2.3学生成绩信息 score_info</h5><h4 id="3-院系部门管理员"><a href="#3-院系部门管理员" class="headerlink" title="3.院系部门管理员"></a>3.院系部门管理员</h4><h5 id="3-1院系部门管理员-depart-info"><a href="#3-1院系部门管理员-depart-info" class="headerlink" title="3.1院系部门管理员 depart_info"></a>3.1院系部门管理员 depart_info</h5><table>
+<thead>
+<tr>
+<th>字段</th>
+<th>类型</th>
+<th>长度</th>
+<th>说明</th>
+<th>空/非空</th>
+<th>约束条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>depart_id</td>
+<td>int</td>
+<td></td>
+<td></td>
+<td>非空</td>
+<td>主键</td>
+</tr>
+<tr>
+<td>depart_pwd</td>
+<td>varchar</td>
+<td>100</td>
+<td>密码</td>
+<td>非空</td>
+<td></td>
+</tr>
+<tr>
+<td>depart_name</td>
+<td>varchar</td>
+<td>100</td>
+<td>用户名</td>
+<td>非空</td>
+<td></td>
+</tr>
+<tr>
+<td>depart_tech</td>
+<td>varchar</td>
+<td>100</td>
+<td>教师名称</td>
+<td></td>
+<td>外键</td>
+</tr>
+<tr>
+<td>Authority</td>
+<td>int</td>
+<td>4</td>
+<td>权限2</td>
+<td>非空</td>
+<td></td>
+</tr>
+</tbody></table>
+<h5 id="4-班主任信息-tech-info"><a href="#4-班主任信息-tech-info" class="headerlink" title="4.班主任信息 tech_info"></a>4.班主任信息 tech_info</h5><table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">类型</th>
+<th align="center">长度</th>
+<th align="center">说明</th>
+<th align="center">空/非空</th>
+<th align="center">约束条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">id</td>
+<td align="center">int</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">非空</td>
+<td align="center">主键</td>
+</tr>
+<tr>
+<td align="center">tech_id</td>
+<td align="center">varchar</td>
+<td align="center">20</td>
+<td align="center">教师id</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">tech_pwd</td>
+<td align="center">varchar</td>
+<td align="center">20</td>
+<td align="center">密码</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">tech_name</td>
+<td align="center">varchar</td>
+<td align="center">20</td>
+<td align="center">姓名</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">tech_phone</td>
+<td align="center">varchar</td>
+<td align="center">20</td>
+<td align="center">手机号</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">tech_title</td>
+<td align="center">varchar</td>
+<td align="center">20</td>
+<td align="center">头衔</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">tech_class</td>
+<td align="center">varchar</td>
+<td align="center">100</td>
+<td align="center">所管班级</td>
+<td align="center"></td>
+<td align="center">外键</td>
+</tr>
+<tr>
+<td align="center">Authority</td>
+<td align="center">varchar</td>
+<td align="center"></td>
+<td align="center">权限3</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<h5 id="5-学生基本信息-student-info"><a href="#5-学生基本信息-student-info" class="headerlink" title="5.学生基本信息 student_info"></a>5.学生基本信息 student_info</h5><table>
+<thead>
+<tr>
+<th align="center">字段</th>
+<th align="center">类型</th>
+<th align="center">长度</th>
+<th align="center">说明</th>
+<th align="center">空/非空</th>
+<th align="center">约束条件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">id</td>
+<td align="center">int</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">非空</td>
+<td align="center">主键</td>
+</tr>
+<tr>
+<td align="center">stu_id</td>
+<td align="center">varchar</td>
+<td align="center">20</td>
+<td align="center">学号</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">stu_phone</td>
+<td align="center">varchar</td>
+<td align="center">20</td>
+<td align="center">手机号</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">stu_name</td>
+<td align="center">varchar</td>
+<td align="center">20</td>
+<td align="center">姓名</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">stu_depart</td>
+<td align="center">varchar</td>
+<td align="center">20</td>
+<td align="center">院系</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">stu_class</td>
+<td align="center">varchar</td>
+<td align="center">20</td>
+<td align="center">班级</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">stu_gender</td>
+<td align="center">varchar</td>
+<td align="center">10</td>
+<td align="center">性别</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">stu_creId</td>
+<td align="center">varchar</td>
+<td align="center">60</td>
+<td align="center">银行卡号</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">stu_address</td>
+<td align="center">varchar</td>
+<td align="center">60</td>
+<td align="center">住址</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">Authority</td>
+<td align="center">varchar</td>
+<td align="center"></td>
+<td align="center">权限4</td>
+<td align="center">非空</td>
+<td align="center"></td>
+</tr>
+</tbody></table>
+<p>建表</p>
+<ul>
+<li><pre><code>create table student_info(
+        id int auto_increment primary key,
+        stu_id varchar(20) not null,
+        stu_name varchar(20) not null,
+        stu_phone varchar(20) not null,
+        stu_depart varchar(20) not null,
+        stu_class varchar(20) not null,
+        stu_gender varchar(10) not null,
+        stu_creId varchar(60),
+        stu_address varchar(60),
+        Authority int not null
+)charset utf8;
+</code></pre>
+</li>
+</ul>
+<p>添加语句</p>
+<ul>
+<li><code>insert into student_info (id,stu_id,stu_phone,stu_name,stu_depart,stu_class,stu_gender,stu_creId,stu_address,Authority) values (null,&#39;201719044221&#39;,&#39;13283871263&#39;,&#39;张与时&#39;,&#39;软件学院&#39;,&#39;RB软工网172&#39;,&#39;男&#39;,&#39;12345678912345600X&#39;,&#39;河南省开封市顺河回族区&#39;,1);</code></li>
+</ul>
+<p>删除语句</p>
+<ul>
+<li><code>delete from student_info where id = 1;</code></li>
+</ul>
+<p>删除语句</p>
+<ul>
+<li><code>delete from manage_log where log_title = &#39;日志标题一号&#39;;</code></li>
+</ul>
+<h3 id="权限"><a href="#权限" class="headerlink" title="权限"></a>权限</h3><h5 id="系统权限"><a href="#系统权限" class="headerlink" title="系统权限"></a>系统权限</h5><table>
+<thead>
+<tr>
+<th align="center">权限</th>
+<th align="center">数据库表示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">系统管理员</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">奖学金部门管理员</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">院系</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">班主任</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td align="center">学生</td>
+<td align="center">4</td>
+</tr>
+</tbody></table>
+<h5 id="奖学金级别"><a href="#奖学金级别" class="headerlink" title="奖学金级别"></a>奖学金级别</h5><table>
+<thead>
+<tr>
+<th align="center">级别</th>
+<th align="center">数据库表示</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">院级</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td align="center">校级</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td align="center">省级</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td align="center">国家级</td>
+<td align="center">3</td>
+</tr>
+</tbody></table>
+<h3 id="存在问题"><a href="#存在问题" class="headerlink" title="存在问题"></a>存在问题</h3><ul>
+<li>一些命名规范</li>
+<li>组件化管理规范</li>
+</ul>
+</div></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">narcissus</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="http://yoursite.com/2021/04/01/%E5%A5%96%E5%AD%A6%E9%87%91%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/">http://yoursite.com/2021/04/01/%E5%A5%96%E5%AD%A6%E9%87%91%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E6%95%B0%E6%8D%AE%E5%BA%93%E8%AE%BE%E8%AE%A1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://yoursite.com">张与时の岛</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/mysql/">mysql    </a></div><div class="post_share"><div class="social-share" data-image="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/archive.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js@1.0.16/dist/js/social-share.min.js"></script></div></div><div class="post-reward"><a class="reward-button"><i class="fa fa-qrcode"></i> 打赏<div class="reward-main"><ul class="reward-all"><li class="reward-item"><img class="lozad post-qr-code__img" src="/img/wechat.jpg"><div class="post-qr-code__desc">微信</div></li><li class="reward-item"><img class="lozad post-qr-code__img" src="/img/alipay.jpg"><div class="post-qr-code__desc">支付寶</div></li></ul></div></a></div><nav class="pagination_post" id="pagination"><div class="next-post pull-full"><a href="/2021/03/31/%E6%B5%AE%E5%8A%A8%E4%B8%8E%E5%AE%9A%E4%BD%8D/"><img class="next_cover lozad" data-src="https://cdn.jsdelivr.net/gh/jerryc127/CDN@latest/Photo/post.png" onerror="onerror=null;src='/img/404.jpg'"><div class="label">下一篇</div><div class="next_info"><span>浮动与定位</span></div></a></div></nav></div></div><footer><div id="footer"><div class="copyright">&copy;2018 - 2021 By narcissus</div><div class="framework-info"><span>驱动 </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly"><span>Butterfly</span></a></div></div></footer></div><section class="rightside" id="rightside"><div id="rightside-config-hide"><i class="fa fa-book" id="readmode" title="阅读模式"></i><i class="fa fa-plus" id="font_plus" title="放大字体"></i><i class="fa fa-minus" id="font_minus" title="缩小字体"></i><a class="translate_chn_to_cht" id="translateLink" href="javascript:translatePage();" title="简繁转换">简</a><i class="nightshift fa fa-moon-o" id="nightshift" title="夜间模式"></i></div><div id="rightside-config-show"><div id="rightside_config" title="设置"><i class="fa fa-cog" aria-hidden="true"></i></div><a id="to_comment" href="#post-comment" title="直达评论"><i class="scroll_to_comment fa fa-comments">  </i></a><i class="fa fa-list-ul close" id="mobile-toc-button" title="目录" aria-hidden="true"></i><i class="fa fa-arrow-up" id="go-up" title="回到顶部" aria-hidden="true"></i></div></section><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/nightshift.js"></script><script src="/js/baidupush.js"> </script><script src="/js/tw_cn.js"></script><script>translateInitilization()
 
 </script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page@1.2.2/instantpage.min.js" type="module"></script><script src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script><script>const observer = lozad(); // lazy loads elements with default selector as '.lozad'
 observer.observe();
